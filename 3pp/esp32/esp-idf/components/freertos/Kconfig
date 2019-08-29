@@ -1,0 +1,202 @@
+menu "FreeRTOS"
+
+# This is actually also handled in the ESP32 startup code, not only in FreeRTOS.
+config FREERTOS_UNICORE
+    bool "Run FreeRTOS only on first core"
+    default y
+    help
+        This version of FreeRTOS normally takes control of all cores of 
+        the CPU. Select this if you only want to start it on the first core.
+        This is needed when e.g. another process needs complete control
+        over the second core.
+
+
+choice FREERTOS_CORETIMER
+    prompt "Xtensa timer to use as the FreeRTOS tick source"
+    default CONFIG_FREERTOS_CORETIMER_0
+    help
+        FreeRTOS needs a timer with an associated interrupt to use as
+        the main tick source to increase counters, run timers and do
+        pre-emptive multitasking with. There are multiple timers available
+        to do this, with different interrupt priorities. Check 
+
+config FREERTOS_CORETIMER_0
+    bool "Timer 0 (int 6, level 1)"
+    help
+        Select this to use timer 0
+
+config FREERTOS_CORETIMER_1
+    bool "Timer 1 (int 15, level 3)"
+    help
+        Select this to use timer 1
+
+config FREERTOS_CORETIMER_2
+    bool "Timer 2 (int 16, level 5)"
+    help
+        Select this to use timer 2
+
+endchoice
+
+config FREERTOS_HZ
+    int "Tick rate (Hz)"
+    range 1 1000
+    default 100
+    help
+        Select the tick rate at which FreeRTOS does pre-emptive context switching.
+
+config FREERTOS_ASSERT_ON_UNTESTED_FUNCTION
+	bool "Halt when an SMP-untested function is called"
+	default y
+	help
+		Some functions in FreeRTOS have not been thoroughly tested yet when moving to
+		the SMP implementation of FreeRTOS. When this option is enabled, these fuctions
+		will throw an assert().
+
+choice FREERTOS_CHECK_STACKOVERFLOW
+    prompt "Check for stack overflow"
+    default FREERTOS_CHECK_STACKOVERFLOW_QUICK
+    help
+        FreeRTOS can check for stack overflows in threads and trigger an user function
+        called vApplicationStackOverflowHook when this happens.
+
+config FREERTOS_CHECK_STACKOVERFLOW_NONE
+    bool "No checking"
+    help
+        Do not check for stack overflows (configCHECK_FOR_STACK_OVERFLOW=0)
+
+config FREERTOS_CHECK_STACKOVERFLOW_PTRVAL
+    bool "Check by stack pointer value"
+    help
+        Check for stack overflows on each context switch by checking if
+        the stack pointer is in a valid range. Quick but does not detect
+        stack overflows that happened between context switches
+        (configCHECK_FOR_STACK_OVERFLOW=1)
+
+config FREERTOS_CHECK_STACKOVERFLOW_CANARY
+    bool "Check using canary bytes"
+    help
+        Places some magic bytes at the end of the stack area and on each 
+        context switch, check if these bytes are still intact. More thorough
+        than just checking the pointer, but also slightly slower.
+        (configCHECK_FOR_STACK_OVERFLOW=2)
+endchoice
+
+config FREERTOS_THREAD_LOCAL_STORAGE_POINTERS
+    int "Amount of thread local storage pointers"
+    range 0 256 if !WIFI_ENABLED
+    range 1 256 if WIFI_ENABLED
+    default 1
+    help
+        FreeRTOS has the ability to store per-thread pointers in the task
+        control block. This controls the amount of pointers available;
+        0 turns off this functionality.
+
+        If using the WiFi stack, this value must be at least 1.
+
+choice FREERTOS_ASSERT
+    prompt "FreeRTOS assertions"
+    default FREERTOS_ASSERT_FAIL_ABORT
+    help
+        Failed FreeRTOS configASSERT() assertions can be configured to
+        behave in different ways.
+
+config FREERTOS_ASSERT_FAIL_ABORT
+    bool "abort() on failed assertions"
+    help
+        If a FreeRTOS configASSERT() fails, FreeRTOS will abort() and
+        halt execution. The panic handler can be configured to handle
+        the outcome of an abort() in different ways.
+
+config FREERTOS_ASSERT_FAIL_PRINT_CONTINUE
+    bool "Print and continue failed assertions"
+    help
+        If a FreeRTOS assertion fails, print it out and continue.
+
+config FREERTOS_ASSERT_DISABLE
+    bool "Disable FreeRTOS assertions"
+    help
+        FreeRTOS configASSERT() will not be compiled into the binary.
+
+endchoice
+
+config FREERTOS_BREAK_ON_SCHEDULER_START_JTAG
+    bool "Stop program on scheduler start when JTAG/OCD is detected"
+    depends on ESP32_DEBUG_OCDAWARE
+    default y
+    help
+        If JTAG/OCD is connected, stop execution when the scheduler is started and the first
+        task is executed.
+
+menuconfig ENABLE_MEMORY_DEBUG
+    bool "Enable heap memory debug"
+    default n
+    help
+        Enable this option to show malloc heap block and memory crash detect
+
+config FREERTOS_ISR_STACKSIZE
+    int "ISR stack size"
+    range 1536 32768
+    default 1536
+    help
+        The interrupt handlers have their own stack. The size of the stack can be defined here. 
+        Each processor has its own stack, so the total size occupied will be twice this.
+
+config FREERTOS_LEGACY_HOOKS
+    bool "Use FreeRTOS legacy hooks"
+    default n
+    help
+        FreeRTOS offers a number of hooks/callback functions that are called when a timer
+        tick happens, the idle thread runs etc. esp-idf replaces these by runtime registerable
+        hooks using the esp_register_freertos_xxx_hook system, but for legacy reasons the old
+        hooks can also still be enabled. Please enable this only if you have code that for some
+        reason can't be migrated to the esp_register_freertos_xxx_hook system.
+
+if FREERTOS_LEGACY_HOOKS
+
+config FREERTOS_LEGACY_IDLE_HOOK
+    bool "Enable legacy idle hook"
+    default n
+    help
+        If enabled, FreeRTOS will call a function called vApplicationIdleHook when the idle thread
+        on a CPU is running. Please make sure your code defines such a function.
+
+config FREERTOS_LEGACY_TICK_HOOK
+    bool "Enable legacy tick hook"
+    default n
+    help
+        If enabled, FreeRTOS will call a function called vApplicationTickHook when a FreeRTOS
+        tick is executed. Please make sure your code defines such a function.
+
+endif #FREERTOS_LEGACY_HOOKS
+
+
+menuconfig FREERTOS_DEBUG_INTERNALS
+    bool "Debug FreeRTOS internals"
+    default n
+    help
+        Enable this option to show the menu with internal FreeRTOS debugging features.
+        This option does not change any code by itself, it just shows/hides some options.
+
+if FREERTOS_DEBUG_INTERNALS
+
+config FREERTOS_PORTMUX_DEBUG
+    bool "Debug portMUX portENTER_CRITICAL/portEXIT_CRITICAL"
+    depends on FREERTOS_DEBUG_INTERNALS
+    default n
+    help
+        If enabled, debug information (including integrity checks) will be printed
+        to UART for the port-specific MUX implementation.
+
+config FREERTOS_PORTMUX_DEBUG_RECURSIVE
+    bool "Debug portMUX Recursion"
+    depends on FREERTOS_PORTMUX_DEBUG
+    default n
+    help
+        If enabled, additional debug information will be printed for recursive
+        portMUX usage.
+
+
+
+endif # FREERTOS_DEBUG_INTERNALS
+
+endmenu

@@ -1,0 +1,397 @@
+{
+    "packages": [
+        {
+            "name": "Simba",
+            "maintainer": "Erik Moqvist",
+            "websiteURL": "https://github.com/eerimoq/simba",
+            "email": "erik.moqvist@gmail.com",
+            "help": {
+                "online": "https://simba-os.readthedocs.org"
+            },
+            "platforms": [
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "10.1.0",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-10.1.0.zip",
+                    "archiveFileName": "simba-arduino-esp32-10.1.0.zip",
+                    "checksum": "SHA-256:4c1273af6d872f86e6201d6c5a2ad0690d2551616668989ecb44bc375c0cd197",
+                    "size": "8063930",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "10.1.1",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-10.1.1.zip",
+                    "archiveFileName": "simba-arduino-esp32-10.1.1.zip",
+                    "checksum": "SHA-256:04698da7acc810e4bf094a62ba119d5cc2c00e00a7b02348502678049a5159f7",
+                    "size": "8063912",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "10.2.0",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-10.2.0.zip",
+                    "archiveFileName": "simba-arduino-esp32-10.2.0.zip",
+                    "checksum": "SHA-256:9b61d5d0d59bfb678e6745c03284cc42689fe2c7e1e2c12f01f5d5e15d75e047",
+                    "size": "8063945",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "11.0.0",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-11.0.0.zip",
+                    "archiveFileName": "simba-arduino-esp32-11.0.0.zip",
+                    "checksum": "SHA-256:aea83e90d87d6dd071a91c783b4083bc917caabd6285fa1669478278640e9fd5",
+                    "size": "7236090",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "12.0.0",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-12.0.0.zip",
+                    "archiveFileName": "simba-arduino-esp32-12.0.0.zip",
+                    "checksum": "SHA-256:9e9565812fe735c8d2e0580de504d2bae8b0a80d843784000031b1695ecc36e4",
+                    "size": "7470170",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "12.2.1",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-12.2.1.zip",
+                    "archiveFileName": "simba-arduino-esp32-12.2.1.zip",
+                    "checksum": "SHA-256:88b5b3fbee72fa162cd16b0d9b48ae98a2a03ff30f5e6ccbab8ba1296864c853",
+                    "size": "7471826",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "12.3.0",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-12.3.0.zip",
+                    "archiveFileName": "simba-arduino-esp32-12.3.0.zip",
+                    "checksum": "SHA-256:f5fd328ba1843f967e3ac13e0aa18977ab647058ef6b8c8da89eefdfc5036fa3",
+                    "size": "11256811",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "13.0.0",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-13.0.0.zip",
+                    "archiveFileName": "simba-arduino-esp32-13.0.0.zip",
+                    "checksum": "SHA-256:7f4003eb69db4b33ae4356af2533282cac427dd0bf1b7f98396fd50a9b7a0472",
+                    "size": "9695740",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "13.0.1",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-13.0.1.zip",
+                    "archiveFileName": "simba-arduino-esp32-13.0.1.zip",
+                    "checksum": "SHA-256:aa214786506cb7349aedd2acb7cdeb180cd320b9415da5a25c20137e112316b9",
+                    "size": "9695740",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "14.0.0",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-14.0.0.zip",
+                    "archiveFileName": "simba-arduino-esp32-14.0.0.zip",
+                    "checksum": "SHA-256:e2a30e6a7b095f57c00b152b27e3a4df9107810881bf4f4965ef85f4fd632485",
+                    "size": "9734688",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        },
+                        {
+                            "name": "ESP32-DevKitC"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "15.0.0",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-15.0.0.zip",
+                    "archiveFileName": "simba-arduino-esp32-15.0.0.zip",
+                    "checksum": "SHA-256:7c9d7b77458e180d1cb40bd277b939a6229cf45c6014dbd70c0b21e3cc05be00",
+                    "size": "9802062",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        },
+                        {
+                            "name": "ESP32-DevKitC"
+                        },
+                        {
+                            "name": "Maple-ESP32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "15.0.1",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-15.0.1.zip",
+                    "archiveFileName": "simba-arduino-esp32-15.0.1.zip",
+                    "checksum": "SHA-256:cacd78a8c580ed2ebc0bf3d35262c962924431d31d43bcdeb6130b6a387ed0e5",
+                    "size": "9802150",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        },
+                        {
+                            "name": "ESP32-DevKitC"
+                        },
+                        {
+                            "name": "Maple-ESP32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                },
+                {
+                    "name": "Simba",
+                    "architecture": "esp32",
+                    "version": "15.0.2",
+                    "category": "Simba",
+                    "help": {
+                        "online": "https://simba-os.readthedocs.org"
+                    },
+                    "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/simba-arduino-esp32-15.0.2.zip",
+                    "archiveFileName": "simba-arduino-esp32-15.0.2.zip",
+                    "checksum": "SHA-256:9e6172fe11b44371ece3d5f244798cdd8b8150c2f564db9fae8cb8cd0aa795c5",
+                    "size": "9802167",
+                    "boards": [
+                        {
+                            "name": "Nano32"
+                        },
+                        {
+                            "name": "ESP32-DevKitC"
+                        },
+                        {
+                            "name": "Maple-ESP32"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "Simba",
+                            "version": "1.22.0-59",
+                            "name": "xtensa-esp32-elf-gcc"
+                        }
+                    ]
+                }
+            ],
+            "tools": [
+                {
+                    "name": "xtensa-esp32-elf-gcc",
+                    "version": "1.22.0-59",
+                    "systems": [
+                        {
+                            "host": "i686-mingw32",
+                            "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/tools/xtensa-esp32-elf-win32-1.22.0-59.zip",
+                            "archiveFileName": "xtensa-esp32-elf-win32-1.22.0-59.zip",
+                            "checksum": "SHA-256:67cefb190f6dcc6a04f8af908f36daa1bf80b95729104442801c695e21d175a3",
+                            "size": "64005933"
+                        },
+                        {
+                            "host": "x86_64-apple-darwin",
+                            "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/tools/xtensa-esp32-elf-osx-1.22.0-59.tar.gz",
+                            "archiveFileName": "xtensa-esp32-elf-osx-1.22.0-59.tar.gz",
+                            "checksum": "SHA-256:95abdd14b49056ba63981f590f7e54a54b846ab93dc38b81c1f098a240e1599d",
+                            "size": "37875781"
+                        },
+                        {
+                            "host": "x86_64-pc-linux-gnu",
+                            "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/tools/xtensa-esp32-elf-linux64-1.22.0-59.tar.gz",
+                            "archiveFileName": "xtensa-esp32-elf-linux64-1.22.0-59.tar.gz",
+                            "checksum": "SHA-256:50e3864d9a2156aeec20f25a34b9cd11e4669736ffe622b75cd9f7bc9febca99",
+                            "size": "33538221"
+                        },
+                        {
+                            "host": "i686-pc-linux-gnu",
+                            "url": "https://github.com/eerimoq/simba-releases/raw/master/arduino/esp32/tools/xtensa-esp32-elf-linux32-1.22.0-59.tar.gz",
+                            "archiveFileName": "xtensa-esp32-elf-linux32-1.22.0-59.tar.gz",
+                            "checksum": "SHA-256:53d45740d68410f9e62cdcf5315d282cf017a5485a6217ba648a1ecae7c5dbf6",
+                            "size": "32125561"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

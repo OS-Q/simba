@@ -1,0 +1,12 @@
+[submodule "components/esp32/lib"]
+	path = components/esp32/lib
+	url = https://github.com/espressif/esp32-wifi-lib.git
+[submodule "components/esptool_py/esptool"]
+	path = components/esptool_py/esptool
+	url = https://github.com/themadinventor/esptool.git
+[submodule "components/bt/lib"]
+	path = components/bt/lib
+	url = https://github.com/espressif/esp32-bt-lib.git
+[submodule "components/micro-ecc/micro-ecc"]
+	path = components/micro-ecc/micro-ecc
+	url = https://github.com/kmackay/micro-ecc.git
