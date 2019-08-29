@@ -1,6 +1,5 @@
 #
-# Setup script for the Simba development environment. Source this file
-# in your shell to setup the environment.
+# Setup script for the Simba development environment.
 #
 
 if [ "${OSTYPE}" = "linux-gnu" ]; then
