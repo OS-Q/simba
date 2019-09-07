@@ -91,7 +91,7 @@ def add_include_paths(env, paths):
 
     platform = env.PioPlatform()
     env.Append(CPPPATH=["$PROJECTSRC_DIR"])
-    framework_dir = platform.get_package_dir("framework-simba")
+    framework_dir = platform.get_package_dir("framework-SimbaOS")
     assert os.path.isdir(framework_dir)
 
     for path in paths:
