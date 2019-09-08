@@ -30,7 +30,7 @@
 
 .PHONY: all generate build clean new run rerun run-debugger help
 
-VERSION ?= $(shell cat $(SIMBA_ROOT)/VERSION.txt)
+VERSION ?= $(shell cat $(SIMBA_ROOT)/src/VERSION.txt)
 
 all:
 

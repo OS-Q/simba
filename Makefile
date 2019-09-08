@@ -1,6 +1,6 @@
 .PHONY: tags doc
 
-SIMBA_VERSION ?= $(shell cat VERSION.txt)
+SIMBA_VERSION ?= $(shell cat src/VERSION.txt)
 
 BOARD ?= linux
 
