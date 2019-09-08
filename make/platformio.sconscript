@@ -3927,7 +3927,7 @@ def set_default_values(env):
     """
 
     if "VERSION" not in env:
-        with open(env.subst(join("$PLATFORMFW_DIR", "VERSION.txt"))) as f:
+        with open(env.subst(join("$PLATFORMFW_DIR", "src/VERSION.txt"))) as f:
             env.Append(VERSION=f.read().strip())
 
     if "NAME" not in env:
