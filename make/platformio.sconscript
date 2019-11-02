@@ -28,6 +28,8 @@ SUPPORTED_BOARDS = [
     "F3A0",
     "F3A1",
     "F3A2",
+    "ESP32",
+    "nano32",
     "esp32_devkitc"
 ]
 
