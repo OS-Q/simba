@@ -17,10 +17,11 @@ BOARD_MAP = {
     "yun": "arduino_pro_micro",
     "nodemcuv2": "nodemcu",
     "esp12": "esp12e",
+    "esp8285": "esp01",
     "d1_mini_pro": "wemos_d1_mini",
     "d1_mini_lite": "wemos_d1_mini",
-    "esp32dev": "esp32_devkitc",
-    "d1_mini": "wemos_d1_mini"
+    "d1_mini": "wemos_d1_mini",
+    "esp32dev": "esp32_devkitc"
 }
 
 # Map the PlatformIO board name to the Simba board name
@@ -32,6 +33,7 @@ SUPPORTED_BOARDS = [
     "arduino_pro_micro",
     "esp12e",
     "esp01",
+    "huzzah",
     "wemos_d1_mini",
     "F3A0",
     "F3A1",
