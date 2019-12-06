@@ -61,8 +61,11 @@ BOARD_MAP = {{
     "megaatmega2560": "arduino_mega",
     "nanoatmega328": "arduino_nano",
     "uno": "arduino_uno",
+    "esp12": "esp12e",
     "nodemcuv2": "nodemcu",
     "esp32dev": "esp32_devkitc",
+    "d1_mini_pro": "wemos_d1_mini",
+    "d1_mini_lite": "wemos_d1_mini",
     "d1_mini": "wemos_d1_mini"
 }}
 
@@ -74,8 +77,9 @@ SUPPORTED_BOARDS = [
     "arduino_uno",
     "esp12e",
     "esp01",
+    "esp07",
+    "esp8285",
     "nodemcu",
-    "huzzah",
     "nano32",
     "esp32_devkitc"
 ]
