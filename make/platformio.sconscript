@@ -9,9 +9,12 @@ from platformio.builder.tools.platformio import SRC_DEFAULT_FILTER
 # Map the PlatformIO board name to the Simba board name
 BOARD_MAP = {
     "due": "arduino_due",
-    "megaatmega2560": "arduino_mega",
-    "nanoatmega328": "arduino_nano",
+    "mega2560": "arduino_mega",
+    "nano328": "arduino_nano",
     "uno": "arduino_uno",
+    "engduinov3": "arduino_pro_micro",
+    "leonardo": "arduino_pro_micro",
+    "yun": "arduino_pro_micro",
     "nodemcuv2": "nodemcu",
     "esp32dev": "esp32_devkitc",
     "d1_mini": "wemos_d1_mini"
@@ -23,6 +26,7 @@ SUPPORTED_BOARDS = [
     "arduino_mega",
     "arduino_nano",
     "arduino_uno",
+    "arduino_pro_micro",
     "esp12e",
     "esp01",
     "F3A0",
