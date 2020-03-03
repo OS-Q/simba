@@ -64,7 +64,7 @@ BOARD_MAP = {{
     "esp12": "esp12e",
     "esp07": "esp12e",
     "nodemcuv2": "nodemcu",
-    "esp32dev": "esp32_devkitc",
+    "esp32dev": "ESP32",
     "d1_mini_pro": "wemos_d1_mini",
     "d1_mini_lite": "wemos_d1_mini",
     "d1_mini": "wemos_d1_mini"
@@ -81,7 +81,7 @@ SUPPORTED_BOARDS = [
     "esp8285",
     "nodemcu",
     "nano32",
-    "esp32_devkitc"
+    "ESP32"
 ]
 
 
@@ -381,7 +381,7 @@ elif board == "wemos_d1_mini":
     setup_board_wemos_d1_mini(env)
 elif board == "nano32":
     setup_board_nano32(env)
-elif board == "esp32_devkitc":
+elif board == "ESP32":
     setup_board_nano32(env)
 elif 'ARCH_AVR' in BOARDS[board]['cdefs']:
     # LTO makes the application crash.

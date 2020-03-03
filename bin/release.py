@@ -251,7 +251,7 @@ def test():
                           ("esp", "esp01"),
                           ("esp", "esp12e"),
                           ("esp32", "nano32"),
-                          ("esp32", "esp32_devkitc"),
+                          ("esp32", "ESP32"),
                           ("esp32", "maple_esp32")]:
         command = [
             "make",

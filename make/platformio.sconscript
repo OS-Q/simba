@@ -21,7 +21,7 @@ BOARD_MAP = {
     "d1_mini_pro": "wemos_d1_mini",
     "d1_mini_lite": "wemos_d1_mini",
     "d1_mini": "wemos_d1_mini",
-    "esp32dev": "esp32_devkitc"
+    "esp32dev": "ESP32"
 }
 
 # Map the PlatformIO board name to the Simba board name
@@ -40,7 +40,7 @@ SUPPORTED_BOARDS = [
     "F3A2",
     "ESP32",
     "nano32",
-    "esp32_devkitc"
+    "ESP32"
 ]
 
 
@@ -1411,7 +1411,7 @@ BOARDS = {
             "src/text/re.c"
         ]
     }, 
-    "esp32_devkitc": {
+    "ESP32": {
         "board_desc": "ESP32-DevKitC", 
         "cdefs": [
             "ARCH_ESP32", 
@@ -1448,9 +1448,9 @@ BOARDS = {
             "-Wno-error=unused-variable"
         ], 
         "inc": [
-            "build/esp32_devkitc/gen", 
+            "build/ESP32/gen", 
             "src", 
-            "src/boards/esp32_devkitc", 
+            "src/boards/ESP32", 
             "src/mcus/esp32", 
             "3pp/esp32/inc/app_update/include", 
             "3pp/esp32/inc/driver/include", 
@@ -1477,7 +1477,7 @@ BOARDS = {
             "-Wl,-static", 
             "-nostdlib", 
             "-Wl,-EL", 
-            "-Wl,-Map=build/esp32_devkitc/default_configuration.map", 
+            "-Wl,-Map=build/ESP32/default_configuration.map", 
             "-Wl,--gc-sections"
         ], 
         "lib": [
@@ -1519,7 +1519,7 @@ BOARDS = {
         "linker_script": "simba.flash.ld", 
         "mcu_desc": "Espressif ESP32 @ 240 MHz, 512 kB sram, 4 MB flash", 
         "src": [
-            "src/boards/esp32_devkitc/board.c", 
+            "src/boards/ESP32/board.c", 
             "src/mcus/esp32/mcu.c", 
             "src/mcus/esp32/esp32.c", 
             "src/alloc/circular_heap.c", 
@@ -4212,7 +4212,7 @@ elif board == "wemos_d1_mini":
     setup_board_wemos_d1_mini(env)
 elif board == "nano32":
     setup_board_nano32(env)
-elif board == "esp32_devkitc":
+elif board == "ESP32":
     setup_board_nano32(env)
 elif 'ARCH_AVR' in BOARDS[board]['cdefs']:
     # LTO makes the application crash.

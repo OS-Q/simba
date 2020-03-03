@@ -58,32 +58,32 @@ nano32.compiler.c.elf.libs={nano32_compiler_c_elf_libs}
 
 ##################################################################
 
-esp32_devkitc.name=ESP32-DevKitC
+ESP32.name=ESP32-DevKitC
 
-esp32_devkitc.upload.tool=esptool
-esp32_devkitc.upload.speed=115200
-esp32_devkitc.upload.resetmethod=ck
-esp32_devkitc.upload.maximum_size=2000000
-esp32_devkitc.upload.maximum_data_size=294912
-esp32_devkitc.upload.wait_for_upload_port=true
-esp32_devkitc.serial.disableDTR=true
-esp32_devkitc.serial.disableRTS=true
+ESP32.upload.tool=esptool
+ESP32.upload.speed=115200
+ESP32.upload.resetmethod=ck
+ESP32.upload.maximum_size=2000000
+ESP32.upload.maximum_data_size=294912
+ESP32.upload.wait_for_upload_port=true
+ESP32.serial.disableDTR=true
+ESP32.serial.disableRTS=true
 
-esp32_devkitc.build.mcu=esp32
-esp32_devkitc.build.f_cpu=240000000L
-esp32_devkitc.build.board=Esp32_Devkitc
-esp32_devkitc.build.variant=esp32_devkitc
-esp32_devkitc.build.core=Simba:simba
-esp32_devkitc.build.ldscript=simba.flash.ld
-esp32_devkitc.build.flash_size=4M
-esp32_devkitc.build.flash_mode=dio
-esp32_devkitc.build.flash_freq=40
+ESP32.build.mcu=esp32
+ESP32.build.f_cpu=240000000L
+ESP32.build.board=Esp32_Devkitc
+ESP32.build.variant=ESP32
+ESP32.build.core=Simba:simba
+ESP32.build.ldscript=simba.flash.ld
+ESP32.build.flash_size=4M
+ESP32.build.flash_mode=dio
+ESP32.build.flash_freq=40
 
-esp32_devkitc.compiler.c.extra_flags={esp32_devkitc_compiler_c_extra_flags}
-esp32_devkitc.compiler.cpp.extra_flags={esp32_devkitc_compiler_cxx_extra_flags}
-esp32_devkitc.compiler.S.extra_flags={esp32_devkitc_compiler_c_extra_flags}
-esp32_devkitc.compiler.c.elf.extra_flags={esp32_devkitc_compiler_c_elf_extra_flags}
-esp32_devkitc.compiler.c.elf.libs={esp32_devkitc_compiler_c_elf_libs}
+ESP32.compiler.c.extra_flags={esp32_devkitc_compiler_c_extra_flags}
+ESP32.compiler.cpp.extra_flags={esp32_devkitc_compiler_cxx_extra_flags}
+ESP32.compiler.S.extra_flags={esp32_devkitc_compiler_c_extra_flags}
+ESP32.compiler.c.elf.extra_flags={esp32_devkitc_compiler_c_elf_extra_flags}
+ESP32.compiler.c.elf.libs={esp32_devkitc_compiler_c_elf_libs}
 
 ##################################################################
 
