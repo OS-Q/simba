@@ -61,12 +61,8 @@ BOARD_MAP = {{
     "megaatmega2560": "arduino_mega",
     "nanoatmega328": "arduino_nano",
     "uno": "arduino_uno",
-    "esp12": "esp12e",
-    "esp07": "esp12e",
     "nodemcuv2": "nodemcu",
-    "esp32dev": "ESP32",
-    "d1_mini_pro": "wemos_d1_mini",
-    "d1_mini_lite": "wemos_d1_mini",
+    "esp32dev": "esp32_devkitc",
     "d1_mini": "wemos_d1_mini"
 }}
 
@@ -78,10 +74,10 @@ SUPPORTED_BOARDS = [
     "arduino_uno",
     "esp12e",
     "esp01",
-    "esp8285",
     "nodemcu",
+    "huzzah",
     "nano32",
-    "ESP32"
+    "esp32_devkitc"
 ]
 
 
@@ -95,7 +91,7 @@ def add_include_paths(env, paths):
 
     platform = env.PioPlatform()
     env.Append(CPPPATH=["$PROJECTSRC_DIR"])
-    framework_dir = platform.get_package_dir("framework-N16")
+    framework_dir = platform.get_package_dir("framework-simba")
     assert os.path.isdir(framework_dir)
 
     for path in paths:
@@ -108,7 +104,7 @@ def set_default_values(env):
     \"\"\"
 
     if "VERSION" not in env:
-        with open(env.subst(join("$PLATFORMFW_DIR", "src/VERSION.txt"))) as f:
+        with open(env.subst(join("$PLATFORMFW_DIR", "VERSION.txt"))) as f:
             env.Append(VERSION=f.read().strip())
 
     if "NAME" not in env:
@@ -381,7 +377,7 @@ elif board == "wemos_d1_mini":
     setup_board_wemos_d1_mini(env)
 elif board == "nano32":
     setup_board_nano32(env)
-elif board == "ESP32":
+elif board == "esp32_devkitc":
     setup_board_nano32(env)
 elif 'ARCH_AVR' in BOARDS[board]['cdefs']:
     # LTO makes the application crash.

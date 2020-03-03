@@ -1,3 +1,33 @@
+#
+# @section License
+#
+# The MIT License (MIT)
+#
+# Copyright (c) 2014-2017, Erik Moqvist
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without
+# restriction, including without limitation the rights to use, copy,
+# modify, merge, publish, distribute, sublicense, and/or sell copies
+# of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+# BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+# ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# This file is part of the Simba project.
+#
+
 import os
 from os.path import join
 import subprocess
@@ -9,19 +39,12 @@ from platformio.builder.tools.platformio import SRC_DEFAULT_FILTER
 # Map the PlatformIO board name to the Simba board name
 BOARD_MAP = {
     "due": "arduino_due",
-    "mega2560": "arduino_mega",
-    "nano328": "arduino_nano",
+    "megaatmega2560": "arduino_mega",
+    "nanoatmega328": "arduino_nano",
     "uno": "arduino_uno",
-    "engduinov3": "arduino_pro_micro",
-    "leonardo": "arduino_pro_micro",
-    "yun": "arduino_pro_micro",
     "nodemcuv2": "nodemcu",
-    "esp12": "esp12e",
-    "esp8285": "esp01",
-    "d1_mini_pro": "wemos_d1_mini",
-    "d1_mini_lite": "wemos_d1_mini",
-    "d1_mini": "wemos_d1_mini",
-    "esp32dev": "ESP32"
+    "esp32dev": "esp32_devkitc",
+    "d1_mini": "wemos_d1_mini"
 }
 
 # Map the PlatformIO board name to the Simba board name
@@ -30,17 +53,12 @@ SUPPORTED_BOARDS = [
     "arduino_mega",
     "arduino_nano",
     "arduino_uno",
-    "arduino_pro_micro",
     "esp12e",
     "esp01",
+    "nodemcu",
     "huzzah",
-    "wemos_d1_mini",
-    "F3A0",
-    "F3A1",
-    "F3A2",
-    "ESP32",
     "nano32",
-    "ESP32"
+    "esp32_devkitc"
 ]
 
 
@@ -1411,7 +1429,7 @@ BOARDS = {
             "src/text/re.c"
         ]
     }, 
-    "ESP32": {
+    "esp32_devkitc": {
         "board_desc": "ESP32-DevKitC", 
         "cdefs": [
             "ARCH_ESP32", 
@@ -1448,9 +1466,9 @@ BOARDS = {
             "-Wno-error=unused-variable"
         ], 
         "inc": [
-            "build/ESP32/gen", 
+            "build/esp32_devkitc/gen", 
             "src", 
-            "src/boards/ESP32", 
+            "src/boards/esp32_devkitc", 
             "src/mcus/esp32", 
             "3pp/esp32/inc/app_update/include", 
             "3pp/esp32/inc/driver/include", 
@@ -1477,7 +1495,7 @@ BOARDS = {
             "-Wl,-static", 
             "-nostdlib", 
             "-Wl,-EL", 
-            "-Wl,-Map=build/ESP32/default_configuration.map", 
+            "-Wl,-Map=build/esp32_devkitc/default_configuration.map", 
             "-Wl,--gc-sections"
         ], 
         "lib": [
@@ -1519,7 +1537,7 @@ BOARDS = {
         "linker_script": "simba.flash.ld", 
         "mcu_desc": "Espressif ESP32 @ 240 MHz, 512 kB sram, 4 MB flash", 
         "src": [
-            "src/boards/ESP32/board.c", 
+            "src/boards/esp32_devkitc/board.c", 
             "src/mcus/esp32/mcu.c", 
             "src/mcus/esp32/esp32.c", 
             "src/alloc/circular_heap.c", 
@@ -2445,13 +2463,13 @@ BOARDS = {
             "src/text/re.c"
         ]
     }, 
-    "F3A0": {
-        "board_desc": "F3A0", 
+    "nano32": {
+        "board_desc": "Nano32", 
         "cdefs": [
             "ARCH_ESP32", 
             "FAMILY_ESP32", 
             "MCU_ESP32", 
-            "BOARD_F3A0", 
+            "BOARD_NANO32", 
             "VERSION=15.0.3", 
             "MBEDTLS_USER_CONFIG_FILE=\"\\\"mbedtls/user_config.h\\\"\""
         ], 
@@ -3939,7 +3957,7 @@ def set_default_values(env):
     """
 
     if "VERSION" not in env:
-        with open(env.subst(join("$PLATFORMFW_DIR", "src/VERSION.txt"))) as f:
+        with open(env.subst(join("$PLATFORMFW_DIR", "VERSION.txt"))) as f:
             env.Append(VERSION=f.read().strip())
 
     if "NAME" not in env:
@@ -4212,7 +4230,7 @@ elif board == "wemos_d1_mini":
     setup_board_wemos_d1_mini(env)
 elif board == "nano32":
     setup_board_nano32(env)
-elif board == "ESP32":
+elif board == "esp32_devkitc":
     setup_board_nano32(env)
 elif 'ARCH_AVR' in BOARDS[board]['cdefs']:
     # LTO makes the application crash.
