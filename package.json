@@ -2,7 +2,7 @@
   "name":"framework-N16",
   "description":"Simba Embedded Programming Platform",
   "url":"https://github.com/OS-Q/N16",
-  "version":"1.0.0",
+  "version":"15.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/OS-Q/N16.git"
