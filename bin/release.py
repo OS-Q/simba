@@ -354,7 +354,7 @@ def package(version):
         ('sha1', sha1sum),
         ('version', version)
     ])
-    data['framework-N16'].insert(0, release_entry)
+    data['framework-simba'].insert(0, release_entry)
 
     with open(manifest_name, 'w') as f:
         f.write(json.dumps(data, indent=4, separators=(',', ': ')))
