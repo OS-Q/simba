@@ -1,6 +1,7 @@
 {
-  "name":"framework-simba",
+  "name":"simba",
   "description":"Simba Embedded Programming Platform",
-  "url":"https://github.com/OS-Q/F15A",
+  "system": "*",
+  "url":"https://github.com/OS-Q/simba",
   "version":"15.0.4"
 }
