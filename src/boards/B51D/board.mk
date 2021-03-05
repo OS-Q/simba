@@ -28,20 +28,20 @@
 # This file is part of the Simba project.
 #
 
-INC += $(SIMBA_ROOT)/src/boards/nodemcu
-SRC += $(SIMBA_ROOT)/src/boards/nodemcu/board.c
+INC += $(SIMBA_ROOT)/src/boards/B51D
+SRC += $(SIMBA_ROOT)/src/boards/B51D/board.c
 
 LINKER_SCRIPT ?= simba.flash.4m.ld
 ESP_FLASH_SIZE = 4M
 
-BOARD_HOMEPAGE = "http://www.nodemcu.com"
-BOARD_PINOUT = "nodemcu-pinout.png"
-BOARD_DESC = "NodeMCU"
+BOARD_HOMEPAGE = "http://espressif.com"
+BOARD_PINOUT = "B51D-pinout.jpg"
+BOARD_DESC = "ESP-12E Development Board"
 
 MCU = esp8266
 SERIAL_PORT ?= /dev/arduino
-BOARD_PY = $(SIMBA_ROOT)/src/boards/nodemcu/board.py
-RUN_PY ?= $(SIMBA_ROOT)/src/boards/nodemcu/run.py
+BOARD_PY = $(SIMBA_ROOT)/src/boards/B51D/board.py
+RUN_PY ?= $(SIMBA_ROOT)/src/boards/B51D/run.py
 CONSOLE_RESET_TYPE ?= 0
 TIMEOUT ?= 10
 BAUDRATE ?= 76800

@@ -72,10 +72,14 @@ SUPPORTED_BOARDS = [
     "arduino_mega",
     "arduino_nano",
     "arduino_uno",
-    "esp12e",
-    "esp01",
     "nodemcu",
-    "huzzah",
+    "B51A",
+    "B51B",
+    "B51D",
+    "B51F",
+    "B52A",
+    "B52B",
+    "B52C",
     "nano32",
     "esp32_devkitc"
 ]
@@ -213,7 +217,7 @@ def setup_mcu_esp(env, linker_script, flash_size_map):
                     '"$OBJCOPY"',
                     "-eo",
                     '"%s"' % join("$PLATFORMFW_DIR", "3pp", "esp8266Arduino",
-                                  "2.3.0", "bootloaders", "eboot", "eboot.elf"),
+                                    "2.3.0", "bootloaders", "eboot", "eboot.elf"),
                     "-bo", "$TARGET",
                     "-bm", "$BOARD_FLASH_MODE",
                     "-bf", "${{__get_board_f_flash(__env__)}}",
@@ -365,9 +369,9 @@ if board == "arduino_due":
         linkflags.append(flag)
     env.Replace(LINKFLAGS=linkflags)
     env.Replace(LDSCRIPT_PATH="script.ld")
-elif board == "esp12e":
+elif board == "B51D":
     setup_board_esp12e(env)
-elif board == "esp01":
+elif board == "B51B":
     setup_board_esp01(env)
 elif board == "nodemcu":
     setup_board_nodemcu(env)

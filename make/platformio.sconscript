@@ -53,8 +53,8 @@ SUPPORTED_BOARDS = [
     "arduino_mega",
     "arduino_nano",
     "arduino_uno",
-    "esp12e",
-    "esp01",
+    "B51D",
+    "B51B",
     "nodemcu",
     "huzzah",
     "nano32",
@@ -917,7 +917,7 @@ BOARDS = {
             "src/text/re.c"
         ]
     },
-    "esp01": {
+    "B51B": {
         "board_desc": "ESP-01",
         "cdefs": [
             "ARCH_ESP",
@@ -961,9 +961,9 @@ BOARDS = {
             "-Wno-error=unused-variable"
         ],
         "inc": [
-            "build/esp01/gen",
+            "build/B51B/gen",
             "src",
-            "src/boards/esp01",
+            "src/boards/B51B",
             "src/mcus/esp8266",
             "3pp/ESP8266_RTOS_SDK/extra_include",
             "3pp/ESP8266_RTOS_SDK/include",
@@ -991,7 +991,7 @@ BOARDS = {
             "-Wl,-EL",
             "-mtext-section-literals",
             "-Wl,--gc-sections",
-            "-Wl,-Map=build/esp01/default_configuration.map",
+            "-Wl,-Map=build/B51B/default_configuration.map",
             "-Wl,--gc-sections"
         ],
         "lib": [
@@ -1015,7 +1015,7 @@ BOARDS = {
         "linker_script": "simba.flash.512k.ld",
         "mcu_desc": "Espressif ESP8266 @ 80 MHz, 82 kB dram, 4 MB flash",
         "src": [
-            "src/boards/esp01/board.c",
+            "src/boards/B51B/board.c",
             "src/mcus/esp8266/mcu.c",
             "src/mcus/esp8266/esp8266.c",
             "src/alloc/circular_heap.c",
@@ -1173,7 +1173,7 @@ BOARDS = {
             "src/text/re.c"
         ]
     },
-    "esp12e": {
+    "B51D": {
         "board_desc": "ESP-12E Development Board",
         "cdefs": [
             "ARCH_ESP",
@@ -1217,9 +1217,9 @@ BOARDS = {
             "-Wno-error=unused-variable"
         ],
         "inc": [
-            "build/esp12e/gen",
+            "build/B51D/gen",
             "src",
-            "src/boards/esp12e",
+            "src/boards/B51D",
             "src/mcus/esp8266",
             "3pp/ESP8266_RTOS_SDK/extra_include",
             "3pp/ESP8266_RTOS_SDK/include",
@@ -1247,7 +1247,7 @@ BOARDS = {
             "-Wl,-EL",
             "-mtext-section-literals",
             "-Wl,--gc-sections",
-            "-Wl,-Map=build/esp12e/default_configuration.map",
+            "-Wl,-Map=build/B51D/default_configuration.map",
             "-Wl,--gc-sections"
         ],
         "lib": [
@@ -1271,7 +1271,7 @@ BOARDS = {
         "linker_script": "simba.flash.4m.ld",
         "mcu_desc": "Espressif ESP8266 @ 80 MHz, 82 kB dram, 4 MB flash",
         "src": [
-            "src/boards/esp12e/board.c",
+            "src/boards/B51D/board.c",
             "src/mcus/esp8266/mcu.c",
             "src/mcus/esp8266/esp8266.c",
             "src/alloc/circular_heap.c",
@@ -4218,9 +4218,9 @@ if board == "arduino_due":
         linkflags.append(flag)
     env.Replace(LINKFLAGS=linkflags)
     env.Replace(LDSCRIPT_PATH="script.ld")
-elif board == "esp12e":
+elif board == "B51D":
     setup_board_esp12e(env)
-elif board == "esp01":
+elif board == "B51B":
     setup_board_esp01(env)
 elif board == "nodemcu":
     setup_board_nodemcu(env)

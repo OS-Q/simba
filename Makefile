@@ -172,7 +172,7 @@ ifeq ($(BOARD), arduino_pro_micro)
                                      timer)
 endif
 
-ifeq ($(BOARD), esp12e)
+ifeq ($(BOARD), B51D)
     TESTS = $(addprefix tst/kernel/, sys \
                                      thrd \
                                      timer)
@@ -407,8 +407,8 @@ clean-arduino-pro-micro:
 clean-nodemcu:
 	$(MAKE) BOARD=nodemcu clean
 
-clean-esp12e:
-	$(MAKE) BOARD=esp12e clean
+clean-B51D:
+	$(MAKE) BOARD=B51D clean
 
 clean-nano32:
 	$(MAKE) BOARD=nano32 clean
@@ -442,9 +442,9 @@ test-nodemcu:
 	@echo "NodeMcu"
 	$(MAKE) BOARD=nodemcu SERIAL_PORT=/dev/simba-nodemcuv3 test
 
-test-esp12e:
+test-B51D:
 	@echo "ESP12-E"
-	$(MAKE) BOARD=esp12e SERIAL_PORT=/dev/simba-esp12e test
+	$(MAKE) BOARD=B51D SERIAL_PORT=/dev/simba-B51D test
 
 test-nano32:
 	@echo "Nano32"
@@ -500,7 +500,7 @@ test-all-boards:
 	$(MAKE) test-arduino-due
 	$(MAKE) test-arduino-mega
 	$(MAKE) test-arduino-nano
-	$(MAKE) test-esp12e
+	$(MAKE) test-B51D
 #	$(MAKE) test-photon
 	$(MAKE) test-arduino-due-platformio
 	$(MAKE) test-arduino-mega-platformio
@@ -515,7 +515,7 @@ clean-all-boards:
 	$(MAKE) clean-arduino-due
 	$(MAKE) clean-arduino-mega
 	$(MAKE) clean-arduino-nano
-	$(MAKE) clean-esp12e
+	$(MAKE) clean-B51D
 #	$(MAKE) clean-photon
 	$(MAKE) clean-arduino-due-platformio
 	$(MAKE) clean-arduino-mega-platformio

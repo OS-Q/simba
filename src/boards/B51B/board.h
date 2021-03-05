@@ -28,47 +28,28 @@
  * This file is part of the Simba project.
  */
 
-#include "simba.h"
+#ifndef __BOARD_H__
+#define __BOARD_H__
 
-int board_pin_string_to_device_index(const char *str_p)
-{
-    long pin;
+#define pin_gpio0_dev pin_device[0]
+#define pin_gpio1_dev pin_device[1]
+#define pin_gpio2_dev pin_device[2]
 
-    if (strncmp(&str_p[0], "d", 1) == 0) {
-        if (std_strtol(&str_p[1], &pin) == NULL) {
-            return (-1);
-        }
+#define pin_d0_dev pin_device[0]
+#define pin_d1_dev pin_device[1]
+#define pin_d2_dev pin_device[2]
 
-        if (pin == 0) {
-            pin = 16;
-        } else if (pin == 1) {
-            pin = 5;
-        } else if (pin == 2) {
-            pin = 4;
-        } else if (pin == 3) {
-            pin = 0;
-        } else if (pin == 4) {
-            pin = 2;
-        } else if (pin == 5) {
-            pin = 14;
-        } else if (pin == 6) {
-            pin = 12;
-        } else if (pin == 7) {
-            pin = 13;
-        } else if (pin == 8) {
-            pin = 15;
-        } else if (pin == 9) {
-            pin = 3;
-        } else if (pin == 10) {
-            pin = 1;
-        } else {
-            pin = -1;
-        }
-    } else if (strcmp(str_p, "led") == 0) {
-        pin = 16;
-    } else {
-        return (-1);
-    }
+#define pin_led_dev pin_device[1]
 
-    return (pin);
-}
+#define flash_0_dev flash_device[0]
+
+/**
+ * Convert given pin string to the pin number.
+ *
+ * @param[in] str_p Pin as a string.
+ *
+ * @return Pin number or negative error code.
+ */
+int board_pin_string_to_device_index(const char *str_p);
+
+#endif

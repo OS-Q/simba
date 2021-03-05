@@ -28,20 +28,20 @@
 # This file is part of the Simba project.
 #
 
-INC += $(SIMBA_ROOT)/src/boards/esp12e
-SRC += $(SIMBA_ROOT)/src/boards/esp12e/board.c
+INC += $(SIMBA_ROOT)/src/boards/B51B
+SRC += $(SIMBA_ROOT)/src/boards/B51B/board.c
 
-LINKER_SCRIPT ?= simba.flash.4m.ld
-ESP_FLASH_SIZE = 4M
+LINKER_SCRIPT ?= simba.flash.512k.ld
+ESP_FLASH_SIZE = 512K
 
 BOARD_HOMEPAGE = "http://espressif.com"
-BOARD_PINOUT = "esp12e-pinout.jpg"
-BOARD_DESC = "ESP-12E Development Board"
+BOARD_PINOUT = "B51B-pinout.png"
+BOARD_DESC = "ESP-01"
 
 MCU = esp8266
 SERIAL_PORT ?= /dev/arduino
-BOARD_PY = $(SIMBA_ROOT)/src/boards/esp12e/board.py
-RUN_PY ?= $(SIMBA_ROOT)/src/boards/esp12e/run.py
+BOARD_PY = $(SIMBA_ROOT)/src/boards/B51D/board.py
+RUN_PY ?= $(SIMBA_ROOT)/src/boards/B51D/run.py
 CONSOLE_RESET_TYPE ?= 0
 TIMEOUT ?= 10
 BAUDRATE ?= 76800
@@ -53,8 +53,8 @@ upload:
 rerun:
 	@echo "Running '$(EXE)'."
 	python -u $(RUN_PY) --port $(SERIAL_PORT) \
-			    --timeout $(TIMEOUT) \
-			    --baudrate $(BAUDRATE) \
-	 		    --pattern $(RUN_END_PATTERN)\
-			    --pattern-success $(RUN_END_PATTERN_SUCCESS) \
-			    | tee $(RUNLOG) ; test $${PIPESTATUS[0]} -eq 0
+				--timeout $(TIMEOUT) \
+				--baudrate $(BAUDRATE) \
+				--pattern $(RUN_END_PATTERN)\
+				--pattern-success $(RUN_END_PATTERN_SUCCESS) \
+				| tee $(RUNLOG) ; test $${PIPESTATUS[0]} -eq 0
