@@ -1,4 +1,4 @@
-name: ubuntu
+name: ubuntu-16.04
 
 on:
   push:
@@ -28,6 +28,7 @@ jobs:
           sudo apt install -qq lcov -y
           sudo apt install -qq cloc -y
           sudo apt install -qq pmccabe -y
+          sudo apt install gcc-4.8
           source setup.sh
           gcc --version
           g++ --version
@@ -35,7 +36,7 @@ jobs:
 
       - name: Build
         run: |
-          make -s travis -j $(cat /proc/cpuinfo | grep processor | wc -l)
+          make -s -j $(cat /proc/cpuinfo | grep processor | wc -l)
 
       - name: Upload
         uses: actions/upload-artifact@v2

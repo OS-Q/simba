@@ -17,4 +17,4 @@ steps:
   - gcc --version
   - g++ --version
   - ld --version
-  - make -s travis -j $(cat /proc/cpuinfo | grep processor | wc -l)
+  - make -s -j $(cat /proc/cpuinfo | grep processor | wc -l)

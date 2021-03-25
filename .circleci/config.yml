@@ -2,7 +2,7 @@ version: 2
 jobs:
   MAKE:
     docker:
-      - image: gcc
+      - image: gcc:4.8.4
     steps:
       - checkout
       - run:
@@ -25,7 +25,7 @@ jobs:
             ld --version
       - run:
           name: "Build"
-          command: make -s travis -j $(cat /proc/cpuinfo | grep processor | wc -l)
+          command: make -s -j $(cat /proc/cpuinfo | grep processor | wc -l)
 
 workflows:
     version: 2
