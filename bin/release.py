@@ -243,8 +243,9 @@ def test():
     generate_arduino()
 
     # Build an application using the Arduino builder.
-    for family, board in [("avr", "nano"),
+    for family, board in [("avr", "ethernet"),
                             ("avr", "uno"),
+                            ("avr", "yun"),
                             ("avr", "mega2560"),
                             ("avr", "pro-micro"),
                             ("sam", "arduino_due_x_dbg"),

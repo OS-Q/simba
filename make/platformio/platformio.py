@@ -35,8 +35,9 @@ from platformio.builder.tools.platformio import SRC_DEFAULT_FILTER
 BOARD_MAP = {{
     "due": "arduino_due",
     "mega2560": "arduino_mega",
-    "nano": "arduino_nano",
+    "ethernet": "arduino_nano",
     "uno": "arduino_uno",
+    "yun": "arduino_pro_micro",
     "nodemcuv2": "nodemcu",
     "esp32dev": "esp32_devkitc",
     "d1_mini": "wemos_d1_mini"
