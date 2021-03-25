@@ -1,6 +1,6 @@
 ﻿# [simba](https://github.com/OS-Q/simba)
 
-[![sites](http://182.61.61.133/link/resources/OSQ.png)](http://www.OS-Q.com)
+[![Build Status](https://travis-ci.com/OS-Q/simba.svg?branch=master)](https://travis-ci.com/OS-Q/simba)
 
 ### [简介](https://github.com/OS-Q/simba/wiki)
 

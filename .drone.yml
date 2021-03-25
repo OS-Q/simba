@@ -1,0 +1,20 @@
+kind: pipeline
+name: default
+
+steps:
+- name: simba
+  image: ubuntu
+  commands:
+  - apt update
+  - apt install -y git
+  - git submodule update --init --recursive
+  - apt-get update -qq
+  - apt-get install -qq parted -y
+  - apt-get install -qq lcov -y
+  - apt-get install -qq cloc -y
+  - apt-get install -qq pmccabe -y
+  - source setup.sh
+  - gcc --version
+  - g++ --version
+  - ld --version
+  - make -s travis -j $(cat /proc/cpuinfo | grep processor | wc -l)

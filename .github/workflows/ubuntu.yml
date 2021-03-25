@@ -1,0 +1,44 @@
+name: ubuntu
+
+on:
+  push:
+    branches:
+      - master
+      - github_actions
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - master
+      - github_actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Install
+        run: |
+          apt-get update -qq
+          apt-get install -qq parted -y
+          apt-get install -qq lcov -y
+          apt-get install -qq cloc -y
+          apt-get install -qq pmccabe -y
+          source setup.sh
+          gcc --version
+          g++ --version
+          ld --version
+
+      - name: Build
+        run: |
+          make -s travis -j $(cat /proc/cpuinfo | grep processor | wc -l)
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: simba-build
+          path: make/arduino
