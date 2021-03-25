@@ -23,12 +23,22 @@ jobs:
 
       - name: Install
         run: |
+          sudo apt-get update
           sudo apt update -qq
           sudo apt install -qq parted -y
           sudo apt install -qq lcov -y
           sudo apt install -qq cloc -y
           sudo apt install -qq pmccabe -y
-          sudo apt install gcc-4.8
+          sudo apt-get install gcc-4.8
+          sudo apt-get install g++-4.8
+          sudo update-alternatives --remove-all gcc
+          sudo update-alternatives --remove-all g++
+          sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 20
+          sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20
+          sudo update-alternatives --config gcc
+          sudo update-alternatives --config g++
+          sudo apt-get upgrade -y
+          sudo apt-get dist-upgrade
           source setup.sh
           gcc --version
           g++ --version
