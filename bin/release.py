@@ -98,7 +98,6 @@ PACKAGE_ESP32_RELEASE_ENTRY_FMT = """
     "size": "{size}",
     "boards": [
         {{"name" : "Nano32"}},
-        {{"name" : "ESP32"}},
         {{"name" : "ESP32-DevKitC"}},
         {{"name" : "Maple-ESP32"}}
     ],
@@ -252,9 +251,8 @@ def test():
                           ("esp", "esp01"),
                           ("esp", "esp12e"),
                           ("esp32", "nano32"),
-                          ("esp32", "B52A"),
-                          ("esp32", "B52B"),
-                          ("esp32", "B52C")]:
+                          ("esp32", "esp32_devkitc"),
+                          ("esp32", "maple_esp32")]:
         command = [
             "make",
             "all",
@@ -322,7 +320,7 @@ def package(version):
     """Create the release artifacts for Arduino IDE and PlatformIO.
 
     """
-
+    
     git_clean_dfx()
     try:
         git_check_no_modified_files()
@@ -330,7 +328,7 @@ def package(version):
         print('Modified files under version control are not allowed '
               'when creating a release.')
         sys.exit(1)
-
+    
     # Create the PlatformIO package.
     package_name = version + '.zip'
     command = [
@@ -345,7 +343,7 @@ def package(version):
     with open(package_name, 'rb') as f:
         sha1sum = hashlib.sha1(f.read()).hexdigest()
     print('sha1sum of {} is {}:'.format(package_name, sha1sum))
-
+    
     # Add the release to the PlatformIO manifest.
     manifest_name = 'make/platformio/manifest.json'
     with open(manifest_name) as f:
@@ -390,20 +388,20 @@ def package(version):
             sha256sum=sha256sum,
             size=os.stat(package_name).st_size)
         release_entry = json.loads(release_entry_formatted, object_pairs_hook=OrderedDict)
-
+    
         # Insert the release entry into the manifest.
         with open(manifest_name) as f:
             data = json.load(f, object_pairs_hook=OrderedDict)
 
         data['packages'][0]['platforms'].append(release_entry)
-
+    
         with open(manifest_name, 'w') as f:
             f.write(json.dumps(data, indent=4, separators=(',', ': ')))
 
         shutil.copy(package_name, '../simba-releases/arduino/' + family)
         shutil.copy(manifest_name, '../simba-releases/arduino/' + family)
 
-
+    
 def main():
     """Main function.
 

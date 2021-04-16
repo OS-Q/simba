@@ -42,3 +42,9 @@ COPY*
 coverage.*
 *piopm
 **/docs/*
+CHANGE*
+*readme*
+doc/
+examples/
+src/mcus/stm32*/
+src/mcus/sam*/

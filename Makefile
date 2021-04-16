@@ -1,3 +1,33 @@
+#
+# @section License
+#
+# The MIT License (MIT)
+#
+# Copyright (c) 2014-2017, Erik Moqvist
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without
+# restriction, including without limitation the rights to use, copy,
+# modify, merge, publish, distribute, sublicense, and/or sell copies
+# of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+# BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+# ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# This file is part of the Simba project.
+#
+
 .PHONY: tags doc
 
 SIMBA_VERSION ?= $(shell cat VERSION.txt)
@@ -87,7 +117,8 @@ ifeq ($(BOARD), arduino_due)
                                     sha1)
     TESTS += $(addprefix tst/drivers/, chipid \
 				       can \
-				       flash)
+				       flash \
+				       xbee)
 endif
 
 ifeq ($(BOARD), arduino_mega)
@@ -142,7 +173,7 @@ ifeq ($(BOARD), arduino_pro_micro)
                                      timer)
 endif
 
-ifeq ($(BOARD), B51D)
+ifeq ($(BOARD), esp12e)
     TESTS = $(addprefix tst/kernel/, sys \
                                      thrd \
                                      timer)
@@ -178,38 +209,6 @@ ifeq ($(BOARD), nodemcu)
 				    ping)
     TESTS += $(addprefix tst/drivers/, pin \
 			            random)
-    TESTS += $(addprefix tst/filesystems/, fs \
-                                           spiffs)
-endif
-
-ifeq ($(BOARD), B52A)
-    TESTS = $(addprefix tst/kernel/, sys \
-                                     thrd \
-                                     timer)
-    TESTS += $(addprefix tst/sync/, bus \
-                                    event \
-                                    queue \
-                                    rwlock \
-                                    sem)
-    TESTS += $(addprefix tst/collections/, binary_tree \
-                                           bits \
-                                           fifo \
-                                           hash_map)
-    TESTS += $(addprefix tst/alloc/, circular_heap)
-    TESTS += $(addprefix tst/text/, std \
-                                    re)
-    TESTS += $(addprefix tst/debug/, log)
-    TESTS += $(addprefix tst/oam/, shell)
-    TESTS += $(addprefix tst/encode/, base64 \
-                                      json)
-    TESTS += $(addprefix tst/hash/, crc \
-                                    sha1)
-    TESTS += $(addprefix tst/inet/, http_websocket_client \
-				    http_websocket_server \
-				    inet \
-				    mqtt_client_network \
-				    network_interface/wifi_esp \
-				    ping)
     TESTS += $(addprefix tst/filesystems/, fs \
                                            spiffs)
 endif
@@ -409,8 +408,8 @@ clean-arduino-pro-micro:
 clean-nodemcu:
 	$(MAKE) BOARD=nodemcu clean
 
-clean-B51D:
-	$(MAKE) BOARD=B51D clean
+clean-esp12e:
+	$(MAKE) BOARD=esp12e clean
 
 clean-nano32:
 	$(MAKE) BOARD=nano32 clean
@@ -444,9 +443,9 @@ test-nodemcu:
 	@echo "NodeMcu"
 	$(MAKE) BOARD=nodemcu SERIAL_PORT=/dev/simba-nodemcuv3 test
 
-test-B51D:
+test-esp12e:
 	@echo "ESP12-E"
-	$(MAKE) BOARD=B51D SERIAL_PORT=/dev/simba-B51D test
+	$(MAKE) BOARD=esp12e SERIAL_PORT=/dev/simba-esp12e test
 
 test-nano32:
 	@echo "Nano32"
@@ -502,7 +501,7 @@ test-all-boards:
 	$(MAKE) test-arduino-due
 	$(MAKE) test-arduino-mega
 	$(MAKE) test-arduino-nano
-	$(MAKE) test-B51D
+	$(MAKE) test-esp12e
 #	$(MAKE) test-photon
 	$(MAKE) test-arduino-due-platformio
 	$(MAKE) test-arduino-mega-platformio
@@ -517,7 +516,7 @@ clean-all-boards:
 	$(MAKE) clean-arduino-due
 	$(MAKE) clean-arduino-mega
 	$(MAKE) clean-arduino-nano
-	$(MAKE) clean-B51D
+	$(MAKE) clean-esp12e
 #	$(MAKE) clean-photon
 	$(MAKE) clean-arduino-due-platformio
 	$(MAKE) clean-arduino-mega-platformio
@@ -535,6 +534,9 @@ doc:
 
 arduino:
 	+make/arduino/arduino.py --remove-outdir --version $(SIMBA_VERSION)
+
+platformio:
+	+make/platformio/platformio.py --version $(SIMBA_VERSION)
 
 $(APPS:%=%.all):
 	$(MAKE) -C $(basename $@) all

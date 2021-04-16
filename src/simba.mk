@@ -1,3 +1,33 @@
+#
+# @section License
+#
+# The MIT License (MIT)
+#
+# Copyright (c) 2014-2017, Erik Moqvist
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without
+# restriction, including without limitation the rights to use, copy,
+# modify, merge, publish, distribute, sublicense, and/or sell copies
+# of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+# BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+# ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# This file is part of the Simba project.
+#
+
 # Minimal set of files for a test suite.
 ifeq ($(TYPE),suite)
   ALLOC_SRC += heap.c
@@ -70,179 +100,53 @@ SRC += $(DEBUG_SRC:%=$(SIMBA_ROOT)/src/debug/%)
 # Drivers package.
 INC += $(SIMBA_ROOT)/src/drivers/ports/$(FAMILY)
 
-ifeq ($(FAMILY),linux)
 DRIVERS_SRC ?= \
 	adc.c \
 	analog_input_pin.c \
 	analog_output_pin.c \
-	can.c \
-	dac.c \
-	ds18b20.c \
-	eeprom_soft.c \
-	exti.c \
-	flash.c \
-	pin.c \
-	i2c.c \
-	i2c_soft.c \
-	owi.c \
-	pwm.c \
-	pwm_soft.c \
-	random.c \
-	sd.c \
-	spi.c \
-	uart.c
-
-SRC += $(SIMBA_ROOT)/src/drivers/ports/linux/socket_device.c
-endif
-
-ifeq ($(FAMILY),avr)
-DRIVERS_SRC_TMP = \
-	adc.c \
-	analog_input_pin.c \
-	analog_output_pin.c \
-	ds18b20.c \
-	ds3231.c \
-	exti.c \
-	i2c.c \
-	i2c_soft.c \
-	mcp2515.c \
-	nrf24l01.c \
-	spi.c \
-	owi.c \
-	pin.c \
-	pwm.c \
-	pwm_soft.c \
-	sd.c \
-	uart.c \
-	uart_soft.c \
-	watchdog.c
-
-ifeq ($(MCU),atmega32u4)
-DRIVERS_SRC_TMP += \
-	usb.c \
-	usb_device.c \
-	usb/device/descriptors.c \
-	usb/device/class/cdc.c
-endif
-
-DRIVERS_SRC ?= $(DRIVERS_SRC_TMP)
-
-endif
-
-ifeq ($(FAMILY),sam)
-DRIVERS_SRC ?= \
-	adc.c \
-	analog_input_pin.c \
 	can.c \
 	chipid.c \
 	dac.c \
 	ds18b20.c \
+	ds3231.c \
+	eeprom_i2c.c \
 	eeprom_soft.c \
+	esp_wifi.c \
+	esp_wifi/station.c \
+	esp_wifi/softap.c \
 	exti.c \
 	flash.c \
-	mcp2515.c \
-	owi.c \
-	pin.c \
 	i2c.c \
 	i2c_soft.c \
+	led_7seg_ht16k33.c \
+	mcp2515.c \
+	nrf24l01.c \
+	owi.c \
+	pin.c \
+	pwm.c \
+	pwm_soft.c \
+	random.c \
+	sht3xd.c \
 	sd.c \
 	spi.c \
 	uart.c \
+	uart_soft.c \
 	usb.c \
+	usb_device.c \
+	usb/device/descriptors.c \
+	usb/device/class/cdc.c \
+	watchdog.c \
 	usb_host.c \
 	usb/host/class/hid.c \
-	usb/host/class/mass_storage.c
-endif
-
-ifeq ($(FAMILY),esp)
-DRIVERS_SRC ?= \
-	adc.c \
-	analog_input_pin.c \
-	ds18b20.c \
-	eeprom_soft.c \
-	esp_wifi.c \
-	esp_wifi/station.c \
-	esp_wifi/softap.c \
-	exti.c \
-	flash.c \
-	led_7seg_ht16k33.c \
-	owi.c \
-	pin.c \
-	pwm_soft.c \
-	i2c.c \
-	i2c_soft.c \
-	random.c \
-	sht3xd.c \
-	spi.c \
-	uart.c \
-	uart_soft.c
-endif
-
-ifeq ($(FAMILY),esp32)
-DRIVERS_SRC ?= \
-	adc.c \
-	analog_input_pin.c \
-	can.c \
-	dac.c \
-	ds18b20.c \
-	eeprom_soft.c \
-	flash.c \
-	esp_wifi.c \
-	esp_wifi/station.c \
-	esp_wifi/softap.c \
-	i2c.c \
-	i2c_soft.c \
-	owi.c \
-	pin.c \
-	random.c \
-	spi.c \
-	uart.c \
-	ws2812.c
-endif
-
-ifeq ($(FAMILY),stm32f1)
-DRIVERS_SRC ?= \
-	eeprom_soft.c \
-	flash.c \
-	pin.c \
-	i2c.c \
-	i2c_soft.c \
-	uart.c
-endif
-
-ifeq ($(FAMILY),stm32f2)
-DRIVERS_SRC ?= \
-	eeprom_soft.c \
-	flash.c \
-	pin.c \
-	i2c.c \
-	i2c_soft.c \
-	uart.c
-endif
-
-ifeq ($(FAMILY),stm32f3)
-DRIVERS_SRC ?= \
-	eeprom_soft.c \
-	flash.c \
-	pin.c \
-	i2c.c \
-	i2c_soft.c \
-	uart.c
-endif
-
-ifeq ($(FAMILY),spc5)
-DRIVERS_SRC ?= \
-	can.c \
-	eeprom_soft.c \
-	flash.c \
-	i2c.c \
-	i2c_soft.c \
-	pin.c \
-	uart.c \
-	watchdog.c
-endif
+	usb/host/class/mass_storage.c \
+	ws2812.c \
+	xbee.c
 
 SRC += $(DRIVERS_SRC:%=$(SIMBA_ROOT)/src/drivers/%)
+
+ifeq ($(FAMILY),linux)
+SRC += $(SIMBA_ROOT)/src/drivers/ports/linux/socket_device.c
+endif
 
 # Encode package.
 ENCODE_SRC ?= base64.c \
