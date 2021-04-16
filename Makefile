@@ -213,7 +213,72 @@ ifeq ($(BOARD), nodemcu)
                                            spiffs)
 endif
 
+ifeq ($(BOARD), B51A)
+    TESTS = $(addprefix tst/kernel/, sys \
+                                     thrd \
+                                     timer)
+    TESTS += $(addprefix tst/sync/, bus \
+                                    event \
+                                    queue \
+                                    rwlock \
+                                    sem)
+    TESTS += $(addprefix tst/collections/, binary_tree \
+                                           bits \
+                                           fifo \
+                                           hash_map)
+    TESTS += $(addprefix tst/alloc/, circular_heap)
+    TESTS += $(addprefix tst/text/, std \
+                                    re)
+    TESTS += $(addprefix tst/debug/, log)
+    TESTS += $(addprefix tst/oam/, shell)
+    TESTS += $(addprefix tst/encode/, base64 \
+                                      json)
+    TESTS += $(addprefix tst/hash/, crc \
+                                    sha1)
+    TESTS += $(addprefix tst/inet/, http_websocket_client \
+				    http_websocket_server \
+				    inet \
+				    mqtt_client \
+				    network_interface/wifi_esp \
+				    ping)
+    TESTS += $(addprefix tst/drivers/, pin \
+			            random)
+    TESTS += $(addprefix tst/filesystems/, fs \
+                                           spiffs)
+endif
 ifeq ($(BOARD), B52A)
+    TESTS = $(addprefix tst/kernel/, sys \
+                                     thrd \
+                                     timer)
+    TESTS += $(addprefix tst/sync/, bus \
+                                    event \
+                                    queue \
+                                    rwlock \
+                                    sem)
+    TESTS += $(addprefix tst/collections/, binary_tree \
+                                           bits \
+                                           fifo \
+                                           hash_map)
+    TESTS += $(addprefix tst/alloc/, circular_heap)
+    TESTS += $(addprefix tst/text/, std \
+                                    re)
+    TESTS += $(addprefix tst/debug/, log)
+    TESTS += $(addprefix tst/oam/, shell)
+    TESTS += $(addprefix tst/encode/, base64 \
+                                      json)
+    TESTS += $(addprefix tst/hash/, crc \
+                                    sha1)
+    TESTS += $(addprefix tst/inet/, http_websocket_client \
+				    http_websocket_server \
+				    inet \
+				    mqtt_client_network \
+				    network_interface/wifi_esp \
+				    ping)
+    TESTS += $(addprefix tst/filesystems/, fs \
+                                           spiffs)
+endif
+
+ifeq ($(BOARD), B52B)
     TESTS = $(addprefix tst/kernel/, sys \
                                      thrd \
                                      timer)
@@ -277,93 +342,6 @@ ifeq ($(BOARD), nano32)
                                            spiffs)
 endif
 
-ifeq ($(BOARD), stm32vldiscovery)
-    TESTS = $(addprefix tst/kernel/, sys \
-                                     thrd \
-                                     timer)
-    TESTS += $(addprefix tst/sync/, bus \
-                                    event \
-                                    queue \
-                                    rwlock \
-                                    sem)
-    TESTS += $(addprefix tst/collections/, binary_tree \
-                                           bits \
-                                           fifo \
-                                           hash_map)
-    TESTS += $(addprefix tst/alloc/, circular_heap)
-    TESTS += $(addprefix tst/text/, std \
-                                    re)
-    TESTS += $(addprefix tst/debug/, log)
-    TESTS += $(addprefix tst/oam/, shell)
-    TESTS += $(addprefix tst/encode/, base64 \
-                                      json)
-    TESTS += $(addprefix tst/hash/, crc \
-                                    sha1)
-    TESTS += $(addprefix tst/inet/, http_websocket_client \
-				    http_websocket_server \
-				    inet \
-				    mqtt_client \
-				    ping)
-    TESTS += $(addprefix tst/drivers/, pin \
-			            random)
-endif
-
-ifeq ($(BOARD), photon)
-    TESTS = $(addprefix tst/kernel/, sys \
-                                     thrd \
-				     time \
-                                     timer)
-    TESTS += $(addprefix tst/sync/, bus \
-                                    event \
-                                    queue \
-                                    rwlock \
-                                    sem)
-    TESTS += $(addprefix tst/collections/, binary_tree \
-                                           bits \
-                                           fifo \
-                                           hash_map)
-    TESTS += $(addprefix tst/alloc/, circular_heap)
-    TESTS += $(addprefix tst/text/, std \
-                                    re)
-    TESTS += $(addprefix tst/debug/, log)
-    TESTS += $(addprefix tst/oam/, shell)
-    TESTS += $(addprefix tst/encode/, base64 \
-                                      json)
-    TESTS += $(addprefix tst/hash/, crc \
-                                    sha1)
-    TESTS += $(addprefix tst/inet/, http_websocket_client \
-				    http_websocket_server \
-				    inet \
-				    mqtt_client \
-				    ping)
-endif
-
-ifeq ($(BOARD), spc56ddiscovery)
-    TESTS = $(addprefix tst/kernel/, sys \
-                                     thrd \
-                                     time \
-                                     timer)
-    TESTS += $(addprefix tst/sync/, bus \
-                                    event \
-                                    queue \
-                                    rwlock \
-                                    sem)
-    TESTS += $(addprefix tst/collections/, binary_tree \
-                                           bits \
-                                           fifo \
-                                           hash_map)
-    TESTS += $(addprefix tst/alloc/, circular_heap)
-    TESTS += $(addprefix tst/text/, std \
-                                    re)
-    TESTS += $(addprefix tst/debug/, log)
-    TESTS += $(addprefix tst/oam/, shell \
-				   soam)
-    TESTS += $(addprefix tst/encode/, base64 \
-                                      json)
-    TESTS += $(addprefix tst/hash/, crc \
-                                    sha1)
-    TESTS += $(addprefix tst/drivers/, eeprom_soft)
-endif
 
 # List of all application to build
 APPS += $(TESTS)
