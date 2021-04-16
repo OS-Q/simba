@@ -57,6 +57,7 @@ SUPPORTED_BOARDS = [
     "B52A",
     "B52B",
     "B52C",
+    "esp32",
     "nano32",
     "esp32_devkitc"
 ]
@@ -356,6 +357,8 @@ elif board == "huzzah":
     setup_board_huzzah(env)
 elif board == "wemos_d1_mini":
     setup_board_wemos_d1_mini(env)
+elif board == "esp32":
+    setup_board_nano32(env)
 elif board == "nano32":
     setup_board_nano32(env)
 elif board == "esp32_devkitc":

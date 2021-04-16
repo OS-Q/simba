@@ -29,6 +29,7 @@ SUPPORTED_BOARDS = [
     "nodemcu",
     "huzzah",
     "nano32",
+    "esp32",
     "esp32_devkitc"
 ]
 
