@@ -1,6 +1,6 @@
 
-INC += $(SIMBA_ROOT)/src/boards/B52A
-SRC += $(SIMBA_ROOT)/src/boards/B52A/board.c
+INC += $(SIMBA_ROOT)/src/boards/B52B
+SRC += $(SIMBA_ROOT)/src/boards/B52B/board.c
 
 LINKER_SCRIPT ?= simba.flash.ld
 ESP_FLASH_SIZE = 4M
@@ -14,8 +14,8 @@ PARTITIONS_BIN ?= $(SIMBA_ROOT)/3pp/esp32/bin/partitions_singleapp.bin
 endif
 
 BOARD_HOMEPAGE = "http://esp32.de"
-BOARD_PINOUT = "nano32-pinout.jpg"
-BOARD_DESC = "B52A"
+BOARD_PINOUT = "B52B-pinout.jpg"
+BOARD_DESC = "B52B"
 
 MCU = esp32
 SERIAL_PORT ?= /dev/arduino
