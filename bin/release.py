@@ -251,10 +251,10 @@ def test():
                           ("sam", "arduino_due_x_dbg"),
                           ("esp", "esp01"),
                           ("esp", "esp12e"),
-                          ("esp32", "B52A"),
                           ("esp32", "nano32"),
-                          ("esp32", "esp32_devkitc"),
-                          ("esp32", "maple_esp32")]:
+                          ("esp32", "B52A"),
+                          ("esp32", "B52B"),
+                          ("esp32", "B52C")]:
         command = [
             "make",
             "all",

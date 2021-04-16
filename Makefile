@@ -536,9 +536,6 @@ doc:
 arduino:
 	+make/arduino/arduino.py --remove-outdir --version $(SIMBA_VERSION)
 
-platformio:
-	+make/platformio/platformio.py --version $(SIMBA_VERSION)
-
 $(APPS:%=%.all):
 	$(MAKE) -C $(basename $@) all
 
