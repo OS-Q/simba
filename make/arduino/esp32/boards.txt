@@ -58,6 +58,34 @@ nano32.compiler.c.elf.libs={nano32_compiler_c_elf_libs}
 
 ##################################################################
 
+B52A.name=B52A
+
+B52A.upload.tool=esptool
+B52A.upload.speed=115200
+B52A.upload.resetmethod=ck
+B52A.upload.maximum_size=2000000
+B52A.upload.maximum_data_size=294912
+B52A.upload.wait_for_upload_port=true
+B52A.serial.disableDTR=true
+B52A.serial.disableRTS=true
+
+B52A.build.mcu=esp32
+B52A.build.f_cpu=240000000L
+B52A.build.board=B52A
+B52A.build.variant=nano32
+B52A.build.core=Simba:simba
+B52A.build.ldscript=simba.flash.ld
+B52A.build.flash_size=4M
+B52A.build.flash_mode=dio
+B52A.build.flash_freq=40
+
+B52A.compiler.c.extra_flags={nano32_compiler_c_extra_flags}
+B52A.compiler.cpp.extra_flags={nano32_compiler_cxx_extra_flags}
+B52A.compiler.S.extra_flags={nano32_compiler_c_extra_flags}
+B52A.compiler.c.elf.extra_flags={nano32_compiler_c_elf_extra_flags}
+B52A.compiler.c.elf.libs={nano32_compiler_c_elf_libs}
+
+##################################################################
 esp32_devkitc.name=ESP32-DevKitC
 
 esp32_devkitc.upload.tool=esptool

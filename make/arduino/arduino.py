@@ -366,6 +366,10 @@ def generate_boards_txt_esp32(database, boards_txt_fmt):
     nano32_compiler_c_elf_extra_flags += " "
     nano32_compiler_c_elf_extra_flags += libpath
 
+    nano32_compiler_c_elf_extra_flags = get_c_elf_extra_flags("B52A", database)
+    nano32_compiler_c_elf_extra_flags += " "
+    nano32_compiler_c_elf_extra_flags += libpath
+
     esp32_devkitc_compiler_c_elf_extra_flags = get_c_elf_extra_flags("esp32_devkitc", database)
     esp32_devkitc_compiler_c_elf_extra_flags += " "
     esp32_devkitc_compiler_c_elf_extra_flags += libpath

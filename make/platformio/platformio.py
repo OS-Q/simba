@@ -18,10 +18,6 @@ const FAR char sysinfo[] = "app:    myapp built - by -.\\r\\n"
 """
 
 PLATFORMIO_SCONSSCRIPT_FMT = """#
-# @section License
-#
-# The MIT License (MIT)
-#
 
 import os
 from os.path import join
@@ -31,7 +27,6 @@ import shutil
 from SCons.Script import DefaultEnvironment
 from platformio.builder.tools.platformio import SRC_DEFAULT_FILTER
 
-# Map the PlatformIO board name to the Simba board name
 BOARD_MAP = {{
     "due": "arduino_due",
     "mega2560": "arduino_mega",
@@ -43,7 +38,6 @@ BOARD_MAP = {{
     "d1_mini": "wemos_d1_mini"
 }}
 
-# Map the PlatformIO board name to the Simba board name
 SUPPORTED_BOARDS = [
     "arduino_due",
     "arduino_mega",
@@ -57,7 +51,6 @@ SUPPORTED_BOARDS = [
     "B52A",
     "B52B",
     "B52C",
-    "A",
     "esp32",
     "nano32",
     "esp32_devkitc"
