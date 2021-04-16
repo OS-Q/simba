@@ -70,7 +70,7 @@ def generate_cores(family, database):
 
         if database["mcus"][mcu]["family"] != family:
             continue
-        
+
         if cores_srcs is None:
             cores_srcs = set(board["src"])
         else:
@@ -216,7 +216,7 @@ def get_c_extra_flags(board, database):
         if "-mforce-l32" in flag:
             continue
         cflags.append(flag)
-    
+
     return " ".join(cflags
                     + ["\"-I{runtime.platform.path}/cores/simba/" + inc + "\""
                        for inc in incs]
@@ -250,7 +250,7 @@ def get_c_elf_extra_flags(board, database):
 
     libpaths = database["boards"][board]["libpath"]
     ldflags = []
-    
+
     for ldflag in database["boards"][board]["ldflags"]:
         if "-Wl,-Map" in ldflag:
             continue
@@ -284,7 +284,7 @@ def generate_boards_txt_avr(database, boards_txt_fmt):
         uno_compiler_c_extra_flags=get_c_extra_flags("arduino_uno",
                                                      database),
         pro_micro_compiler_c_extra_flags=get_c_extra_flags("arduino_pro_micro",
-                                                           database), 
+                                                           database),
         mega2560_compiler_cxx_extra_flags=get_cxx_extra_flags("arduino_mega",
                                                               database),
         nano_compiler_cxx_extra_flags=get_cxx_extra_flags("arduino_nano",
@@ -332,10 +332,6 @@ def generate_boards_txt_esp(database, boards_txt_fmt):
     nodemcu_compiler_c_elf_extra_flags += " "
     nodemcu_compiler_c_elf_extra_flags += libpath
 
-    huzzah_compiler_c_elf_extra_flags = get_c_elf_extra_flags("huzzah", database)
-    huzzah_compiler_c_elf_extra_flags += " "
-    huzzah_compiler_c_elf_extra_flags += libpath
-
     return boards_txt_fmt.format(
         esp01_compiler_c_extra_flags=get_c_extra_flags("esp01", database),
         esp01_compiler_cxx_extra_flags=get_cxx_extra_flags("esp01", database),
@@ -349,10 +345,6 @@ def generate_boards_txt_esp(database, boards_txt_fmt):
         nodemcu_compiler_cxx_extra_flags=get_cxx_extra_flags("nodemcu", database),
         nodemcu_compiler_c_elf_extra_flags=nodemcu_compiler_c_elf_extra_flags,
         nodemcu_compiler_c_elf_libs=get_c_elf_libs("nodemcu", database),
-        huzzah_compiler_c_extra_flags=get_c_extra_flags("huzzah", database),
-        huzzah_compiler_cxx_extra_flags=get_cxx_extra_flags("huzzah", database),
-        huzzah_compiler_c_elf_extra_flags=huzzah_compiler_c_elf_extra_flags,
-        huzzah_compiler_c_elf_libs=get_c_elf_libs("huzzah", database))
 
 def generate_boards_txt_esp32(database, boards_txt_fmt):
     """Generate boards.txt for ESP32.
@@ -494,7 +486,7 @@ def generate_extra(family, database):
                                  "esptool",
                                  "esptool.py"),
                     "tools")
-        
+
 
 def generate_files_and_folders(family, database, outdir):
     """Generate files and folders.

@@ -248,11 +248,15 @@ def test():
                           ("avr", "mega2560"),
                           ("avr", "pro-micro"),
                           ("sam", "arduino_due_x_dbg"),
-                          ("esp", "esp01"),
+                          ("esp", "B51A"),
+                          ("esp", "B51B"),
+                          ("esp", "B51C"),
+                          ("esp", "B51D"),
+                          ("esp", "B51E"),
                           ("esp", "esp12e"),
                           ("esp32", "nano32"),
-                          ("esp32", "esp32_devkitc"),
-                          ("esp32", "maple_esp32")]:
+                          ("esp32", "B52A"),
+                          ("esp32", "B52B")]:
         command = [
             "make",
             "all",

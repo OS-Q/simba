@@ -36,12 +36,12 @@ ESP_FLASH_SIZE = 512K
 
 BOARD_HOMEPAGE = "http://espressif.com"
 BOARD_PINOUT = "B51B-pinout.png"
-BOARD_DESC = "ESP-01"
+BOARD_DESC = "B51B"
 
 MCU = esp8266
 SERIAL_PORT ?= /dev/arduino
-BOARD_PY = $(SIMBA_ROOT)/src/boards/B51D/board.py
-RUN_PY ?= $(SIMBA_ROOT)/src/boards/B51D/run.py
+BOARD_PY = $(SIMBA_ROOT)/src/boards/B51B/board.py
+RUN_PY ?= $(SIMBA_ROOT)/src/boards/B51B/run.py
 CONSOLE_RESET_TYPE ?= 0
 TIMEOUT ?= 10
 BAUDRATE ?= 76800
