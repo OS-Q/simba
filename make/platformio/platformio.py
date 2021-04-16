@@ -57,6 +57,7 @@ SUPPORTED_BOARDS = [
     "B52A",
     "B52B",
     "B52C",
+    "A",
     "esp32",
     "nano32",
     "esp32_devkitc"

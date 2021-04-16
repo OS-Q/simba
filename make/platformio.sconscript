@@ -29,6 +29,7 @@ SUPPORTED_BOARDS = [
     "nodemcu",
     "huzzah",
     "nano32",
+    "A",
     "esp32",
     "esp32_devkitc"
 ]
@@ -4201,6 +4202,8 @@ elif board == "huzzah":
 elif board == "wemos_d1_mini":
     setup_board_wemos_d1_mini(env)
 elif board == "nano32":
+    setup_board_nano32(env)
+elif board == "A":
     setup_board_nano32(env)
 elif board == "esp32_devkitc":
     setup_board_nano32(env)
