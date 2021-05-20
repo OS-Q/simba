@@ -2,6 +2,6 @@
   "name":"simba",
   "description":"Simba Embedded Programming Platform",
   "system": "*",
-  "url":"https://github.com/OS-Q/simba",
+  "url":"https://github.com/eerimoq/simba",
   "version":"15.0.4"
 }
